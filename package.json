@@ -8,8 +8,8 @@
     "build": "webpack",
     "dev:build": "npm run clean && webpack -w",
     "dev": "npm run build && NODE_ENV=development  && node-dev ./dist/index.bundle.js",
-    "start": "npm run build && NODE_ENV=production && node ./dist/index.bundle.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prod": "npm run build && NODE_ENV=production && node ./dist/index.bundle.js",
+    "start": "npm run build && node ./dist/index.bundle.js"
   },
   "repository": {
     "type": "git",
