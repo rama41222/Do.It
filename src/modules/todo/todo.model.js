@@ -2,7 +2,11 @@ import mongoose, { Schema } from 'mongoose'
 import constants from '../../config/constants'
 
 const TodoSchema = new Schema({
-    items: {
+    user:{
+        type: String,
+        required: true
+    },
+    todo: {
         type: String,
         default: '',
     },

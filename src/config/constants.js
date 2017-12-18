@@ -11,7 +11,7 @@ const testConfig = {
 }
 
 const defaultConfig = {
-    PORT: process.env.port || 8080
+    PORT: process.env.PORT || 8080
 }
 
 function getConfig(env) {
