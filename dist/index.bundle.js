@@ -322,20 +322,14 @@ var create = exports.create = function () {
 
 var list = exports.list = function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
-        var todos;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
             while (1) {
                 switch (_context2.prev = _context2.next) {
                     case 0:
-                        _context2.next = 2;
-                        return _todo2.default.list();
+                        //const todos = await User.list()
+                        res.status(_httpStatus2.default.OK).send({});
 
-                    case 2:
-                        todos = _context2.sent;
-
-                        res.status(_httpStatus2.default.OK).send(todos);
-
-                    case 4:
+                    case 1:
                     case 'end':
                         return _context2.stop();
                 }

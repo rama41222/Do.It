@@ -13,8 +13,8 @@ export async function create(req, res) {
 }
 
 export async function list(req, res) {
-    const todos = await User.list()
-    res.status(HTTP_STATUS.OK).send(todos)
+    //const todos = await User.list()
+    res.status(HTTP_STATUS.OK).send({})
 }
 
 export async function get(req, res) {
