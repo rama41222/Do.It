@@ -298,9 +298,10 @@ var create = exports.create = function () {
             while (1) {
                 switch (_context.prev = _context.next) {
                     case 0:
+                        console.log(req.body);
                         res.status(_httpStatus2.default.OK).json({ sum: 0 });
 
-                    case 1:
+                    case 2:
                     case 'end':
                         return _context.stop();
                 }
@@ -315,13 +316,20 @@ var create = exports.create = function () {
 
 var list = exports.list = function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
+        var todos;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
             while (1) {
                 switch (_context2.prev = _context2.next) {
                     case 0:
-                        res.status(_httpStatus2.default.OK).json({ sum: 0 });
+                        _context2.next = 2;
+                        return _todo2.default.list();
 
-                    case 1:
+                    case 2:
+                        todos = _context2.sent;
+
+                        res.status(_httpStatus2.default.OK).send(todos);
+
+                    case 4:
                     case 'end':
                         return _context2.stop();
                 }
@@ -340,7 +348,7 @@ var get = exports.get = function () {
             while (1) {
                 switch (_context3.prev = _context3.next) {
                     case 0:
-                        res.status(_httpStatus2.default.OK).json({ sum: 0 });
+                        res.status(_httpStatus2.default.OK).json({});
 
                     case 1:
                     case 'end':
@@ -358,6 +366,10 @@ var get = exports.get = function () {
 var _httpStatus = __webpack_require__(12);
 
 var _httpStatus2 = _interopRequireDefault(_httpStatus);
+
+var _todo = __webpack_require__(15);
+
+var _todo2 = _interopRequireDefault(_todo);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -403,6 +415,52 @@ _mongoose2.default.connect(_constants2.default.MONGO_URL, { useMongoClient: true
 /***/ (function(module, exports) {
 
 module.exports = require("mongoose");
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _mongoose = __webpack_require__(14);
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+var _constants = __webpack_require__(1);
+
+var _constants2 = _interopRequireDefault(_constants);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TodoSchema = new _mongoose.Schema({
+    user: {
+        type: String,
+        required: true
+    },
+    todo: {
+        type: String,
+        default: ''
+    }
+});
+
+TodoSchema.statics = {
+    list: function list() {
+        var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+            _ref$skip = _ref.skip,
+            skip = _ref$skip === undefined ? 0 : _ref$skip,
+            _ref$limit = _ref.limit,
+            limit = _ref$limit === undefined ? 50 : _ref$limit;
+
+        return this.find().sort({ createdAt: -1 }).skip(+skip).limit(+limit).exec();
+    }
+};
+
+exports.default = _mongoose2.default.model('Todo', TodoSchema);
 
 /***/ })
 /******/ ]);
