@@ -60,17 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-module.exports = require("express");
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -83,15 +77,15 @@ Object.defineProperty(exports, "__esModule", {
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var devConfig = {
-    MONGO_URL: 'mongodb://localhost/doit-dev'
+    MONGO_URL: 'mongodb://root:pass123@ds161026.mlab.com:61026/alexa-api-doit'
 };
 
 var prodConfig = {
-    MONGO_URL: 'mongodb://localhost/doit-prod'
+    MONGO_URL: 'mongodb://root:pass123@ds161026.mlab.com:61026/alexa-api-doit'
 };
 
 var testConfig = {
-    MONGO_URL: 'mongodb://localhost/doit-test'
+    MONGO_URL: 'mongodb://root:pass123@ds161026.mlab.com:61026/alexa-api-doit'
 };
 
 var defaultConfig = {
@@ -112,41 +106,53 @@ function getConfig(env) {
 exports.default = _extends({}, defaultConfig, getConfig(process.env.NODE_ENV));
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("express");
+
+/***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-__webpack_require__(3);
-module.exports = __webpack_require__(4);
-
+module.exports = require("mongoose");
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(4);
+module.exports = __webpack_require__(5);
+
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-polyfill");
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _express = __webpack_require__(0);
+var _express = __webpack_require__(1);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _middleware = __webpack_require__(5);
+var _middleware = __webpack_require__(6);
 
 var _middleware2 = _interopRequireDefault(_middleware);
 
-var _index = __webpack_require__(9);
+var _index = __webpack_require__(10);
 
 var _index2 = _interopRequireDefault(_index);
 
-__webpack_require__(13);
+__webpack_require__(15);
 
-var _constants = __webpack_require__(1);
+var _constants = __webpack_require__(0);
 
 var _constants2 = _interopRequireDefault(_constants);
 
@@ -164,7 +170,7 @@ app.listen(_constants2.default.PORT, function (e) {
 });
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -174,15 +180,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _cors = __webpack_require__(6);
+var _cors = __webpack_require__(7);
 
 var _cors2 = _interopRequireDefault(_cors);
 
-var _bodyParser = __webpack_require__(7);
+var _bodyParser = __webpack_require__(8);
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
-var _morgan = __webpack_require__(8);
+var _morgan = __webpack_require__(9);
 
 var _morgan2 = _interopRequireDefault(_morgan);
 
@@ -203,25 +209,25 @@ exports.default = function (app) {
 };
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports = require("cors");
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = require("body-parser");
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("morgan");
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -231,7 +237,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _todo = __webpack_require__(10);
+var _todo = __webpack_require__(11);
 
 var _todo2 = _interopRequireDefault(_todo);
 
@@ -247,7 +253,7 @@ exports.default = function (app) {
     */
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -257,9 +263,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _express = __webpack_require__(0);
+var _express = __webpack_require__(1);
 
-var _todo = __webpack_require__(11);
+var _todo = __webpack_require__(12);
 
 var TodoController = _interopRequireWildcard(_todo);
 
@@ -281,7 +287,7 @@ routes.get('/:id', TodoController.get);
 exports.default = routes;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -363,11 +369,11 @@ var get = exports.get = function () {
     };
 }();
 
-var _httpStatus = __webpack_require__(12);
+var _httpStatus = __webpack_require__(13);
 
 var _httpStatus2 = _interopRequireDefault(_httpStatus);
 
-var _todo = __webpack_require__(15);
+var _todo = __webpack_require__(14);
 
 var _todo2 = _interopRequireDefault(_todo);
 
@@ -381,43 +387,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("http-status");
 
 /***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _mongoose = __webpack_require__(14);
-
-var _mongoose2 = _interopRequireDefault(_mongoose);
-
-var _constants = __webpack_require__(1);
-
-var _constants2 = _interopRequireDefault(_constants);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_mongoose2.default.Promise = global.Promise;
-_mongoose2.default.connect(_constants2.default.MONGO_URL, { useMongoClient: true }).then(function () {
-    console.log('\n                Connected to the DB @ : ' + _constants2.default.MONGO_URL + '\n    ');
-}).catch(function (e) {
-    console.log('\n                Error Connecting to DB: ' + e.message + '            \n    ');
-});
-
-/***/ }),
 /* 14 */
-/***/ (function(module, exports) {
-
-module.exports = require("mongoose");
-
-/***/ }),
-/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -427,11 +403,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _mongoose = __webpack_require__(14);
+var _mongoose = __webpack_require__(2);
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-var _constants = __webpack_require__(1);
+var _constants = __webpack_require__(0);
 
 var _constants2 = _interopRequireDefault(_constants);
 
@@ -461,6 +437,30 @@ TodoSchema.statics = {
 };
 
 exports.default = _mongoose2.default.model('Todo', TodoSchema);
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _mongoose = __webpack_require__(2);
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+var _constants = __webpack_require__(0);
+
+var _constants2 = _interopRequireDefault(_constants);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_mongoose2.default.Promise = global.Promise;
+_mongoose2.default.connect(_constants2.default.MONGO_URL, { useMongoClient: true }).then(function () {
+    console.log('\n                Connected to the DB @ : ' + _constants2.default.MONGO_URL + '\n    ');
+}).catch(function (e) {
+    console.log('\n                Error Connecting to DB: ' + e.message + '            \n    ');
+});
 
 /***/ })
 /******/ ]);

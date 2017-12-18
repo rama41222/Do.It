@@ -1,13 +1,13 @@
 const devConfig = {
-    MONGO_URL: 'mongodb://localhost/doit-dev',
+    MONGO_URL: 'mongodb://root:pass123@ds161026.mlab.com:61026/alexa-api-doit',
 }
 
 const prodConfig = {
-    MONGO_URL: 'mongodb://localhost/doit-prod',
+    MONGO_URL: 'mongodb://root:pass123@ds161026.mlab.com:61026/alexa-api-doit',
 }
 
 const testConfig = {
-    MONGO_URL: 'mongodb://localhost/doit-test',
+    MONGO_URL: 'mongodb://root:pass123@ds161026.mlab.com:61026/alexa-api-doit',
 }
 
 const defaultConfig = {
