@@ -9,7 +9,7 @@
     "dev:build": "npm run clean && webpack -w",
     "dev": "npm run build && NODE_ENV=development  && node-dev ./dist/index.bundle.js",
     "prod": "npm run build && NODE_ENV=production && node ./dist/index.bundle.js",
-    "start": "npm run build && node ./dist/index.bundle.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
