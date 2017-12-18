@@ -1,0 +1,50 @@
+{
+  "name": "do.it",
+  "version": "1.0.0",
+  "description": "do it alexa ",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "webpack",
+    "dev:build": "npm run clean && webpack -w",
+    "dev": "npm run build && NODE_ENV=development  && node-dev ./dist/index.bundle.js",
+    "prod": "npm run build && NODE_ENV=production && node ./dist/index.bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rama41222/Do.It.git"
+  },
+  "keywords": [
+    "alexa",
+    "nodejs"
+  ],
+  "author": "rama41222, ntbandara3",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rama41222/Do.It/issues"
+  },
+  "homepage": "https://github.com/rama41222/Do.It#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "http-status": "^1.0.1",
+    "mongoose": "^4.13.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "morgan": "^1.9.0",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.10.0",
+    "webpack-node-externals": "^1.6.0"
+  }
+}
